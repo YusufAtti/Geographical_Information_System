@@ -1,4 +1,7 @@
-﻿using GMap.NET.MapProviders;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,8 +34,31 @@ namespace geographical_information_system
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+      
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) // formu kapattıktan sonra takılı kalmadan kapatmayı sağlar
         {
+            Map.Dispose();
+            Application.Exit();
+        }
+
+        private void btnshow_Click(object sender, EventArgs e)
+        {
+            PointLatLng location1 = new PointLatLng(Convert.ToDouble(txtlati.Text),
+                                                                        Convert.ToDouble(txtlong.Text));
+            GMarkerGoogle marker = new GMarkerGoogle(location1, GMarkerGoogleType.red_dot);
+
+            // Bir overlay(katman) oluşturmamız lazım
+            // Harita uzerınden goruntulenecek tum componentleri bu katman(overlay) eklememiz gerekmekte
+            GMapOverlay layer1 = new GMapOverlay(); 
+
+            // ilk olarak da yeni oluşturdugumuz katmanı harita nesnemıze eklemelıyız
+            Map.Overlays.Add(layer1);
+            
+            // daha sonra marker(ları) eklemeliyiz
+            //dikkat!!
+            // markerlerı once eklersek yanlıs yere koyabılır
+            layer1.Markers.Add(marker);
 
         }
     }
