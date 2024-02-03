@@ -70,6 +70,7 @@
             this.txtlati.Name = "txtlati";
             this.txtlati.Size = new System.Drawing.Size(100, 22);
             this.txtlati.TabIndex = 1;
+            this.txtlati.Text = "39,5";
             // 
             // label1
             // 
@@ -97,6 +98,7 @@
             this.txtlong.Name = "txtlong";
             this.txtlong.Size = new System.Drawing.Size(100, 22);
             this.txtlong.TabIndex = 3;
+            this.txtlong.Text = "32,5";
             // 
             // btnshow
             // 
@@ -133,6 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1095, 639);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
